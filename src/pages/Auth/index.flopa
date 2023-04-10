@@ -1,0 +1,9 @@
+[[title=Авторизация,description=Авторизация]]
+<section class='frame frame_sm'>
+    <h2>Вход</h2>
+    ||input_login||
+    ||input_password||
+    <div class='frame__wrapper'></div>
+    ||auth_button||
+    <a href='/reg'>Нет аккаунта?</a>
+</section>

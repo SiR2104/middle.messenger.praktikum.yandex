@@ -1,0 +1,5 @@
+<div class='chat__bottom_panel'>
+    ||input||
+    <div class='chat__bottom_button chat__bottom_button-attach'></div>
+    <div class='chat__bottom_button chat__bottom_button-send'></div>
+</div>

@@ -1,0 +1,3 @@
+<input class='default__input'
+       name='{{name}}'
+       placeholder='{{placeholder}}'>

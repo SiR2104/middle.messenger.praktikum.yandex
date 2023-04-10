@@ -1,0 +1,7 @@
+<div class='chat__data'>
+    ||mock_message1||
+    ||mock_message2||
+    ||mock_message3||
+    ||mock_message4||
+    <div class='chat__data_date'>22.0.0.11</div>
+</div>

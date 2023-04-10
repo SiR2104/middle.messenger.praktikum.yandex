@@ -1,0 +1,16 @@
+.frame__registration
+{
+  &_cols
+  {
+    padding: {
+      left: 40px;
+      right: 40px;
+    };
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+}

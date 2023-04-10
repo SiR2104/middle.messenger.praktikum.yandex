@@ -1,0 +1,18 @@
+<div class='chat__card'>
+    <div class='chat__card_photo'></div>
+    <div class='chat__card_info'>
+        <span class='chat__card_name'>
+            {{name}}
+            <div class='chat__card_wrapper'></div>
+            <div class='chat__card_date'>{{date}}</div>
+        </span>
+        <span class='chat__card_text'>
+            <div class='chat__card_block'>
+                <span class='chat__card_last'>{{you}}</span>
+                {{text}}
+            </div>
+            <div class='chat__card_wrapper'></div>
+            <div class='chat__card_counter'>{{count}}</div>
+        </span>
+    </div>
+</div>

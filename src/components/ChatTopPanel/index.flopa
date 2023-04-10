@@ -1,0 +1,6 @@
+<div class='chat__top_panel'>
+    <div class='chat__top_photo'></div>
+    <div class='chat__top_name'>{{name}}</div>
+    <div class='chat__top_wrapper'></div>
+    <div class='chat__top_also'></div>
+</div>

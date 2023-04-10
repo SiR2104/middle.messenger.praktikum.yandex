@@ -1,0 +1,48 @@
+.chat__top
+{
+  &_panel
+  {
+    width: 100%;
+    height: 85px;
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow-bottom);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+  &_photo
+  {
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    aspect-ratio: 1/1;
+    background-color: var(--text-disabled-color);
+    cursor: pointer;
+  }
+  &_name
+  {
+    font-size: 16px;
+    line-height: 19px;
+    height: 64px;
+    color: var(--text-color);
+  }
+  &_also
+  {
+    width: 48px;
+    height: 48px;
+    background: url('/src/public/icons/also.svg') no-repeat center;
+    margin: 10px;
+    background-size: 90%;
+    &:hover
+    {
+      border-radius: 6px;
+      background-color: var(--background-dark-color);
+    }
+  }
+  &_wrapper
+  {
+    flex-grow: 1;
+  }
+}

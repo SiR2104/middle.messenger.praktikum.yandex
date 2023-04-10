@@ -1,0 +1,13 @@
+[[title=Спринт 1,description=Задача спринт 1]]
+<section class='frame frame_index'>
+    <h2>Страницы</h2>
+    <a href='/error/404'>Ошибка 404</a>
+    <a href='/error/500'>Ошибка 500</a>
+    <a href='/auth'>Авторизация</a>
+    <a href='/reg'>Регистрация</a>
+    <a href='/profile'>Профиль</a>
+    <a href='/profile-edit'>Редактировать профиль</a>
+    <a href='/reset-password'>Сменить пароль</a>
+    <a href='/select-chat'>Выбор чата</a>
+    <a href='/chat'>Чат</a>
+</section>

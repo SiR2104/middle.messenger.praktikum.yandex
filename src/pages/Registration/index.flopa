@@ -1,0 +1,16 @@
+[[title=Регистрация,description=Регистрация аккаунта]]
+<section class='frame frame_md frame__registration'>
+    <h2>Регистрация</h2>
+    <section class='frame__registration_cols'>
+        ||input_mail||
+        ||input_login||
+        ||input_name||
+        ||input_lastname||
+        ||input_password||
+        ||input_phone||
+        ||input_password_reply||
+    </section>
+    <div class='frame__wrapper'></div>
+    ||reg_button||
+    <a href='/auth'>Войти</a>
+</section>

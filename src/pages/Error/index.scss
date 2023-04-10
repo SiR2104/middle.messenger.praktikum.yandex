@@ -1,0 +1,30 @@
+.error__main
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  &_error
+  {
+    color: var(--primary-color);
+    font-size: 96px;
+    line-height: 120px;
+    font-weight: 400;
+    margin: 0;
+  }
+  &_text
+  {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  &_link
+  {
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--link-color);
+  }
+}
