@@ -4,8 +4,8 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 const components = {
-    'backButton': Button({caption:"Назад"},{onclick:'history.back()'}),
-    'saveButton': Button({caption:"Сохранить"}),
+    'backButton': Button({caption:'Назад', type: 'button'},{onclick:'history.back()'}),
+    'saveButton': Button({caption:'Сохранить', type: 'submit'}),
     'input_name': Input({placeholder:'имя', name:'first_name'}),
     'input_mail': Input({placeholder:'почта', name:'email'}),
     'input_display_name': Input({placeholder:'отображаемое имя', name:'display_name'}),

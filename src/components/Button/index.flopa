@@ -1,1 +1,3 @@
-<button class='button'>{{caption}}</button>
+<button class='button' type='{{type}}'>
+    {{caption}}
+</button>

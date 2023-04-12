@@ -1,10 +1,12 @@
 [[title=Сброс пароля,description=Сброс пароля]]
 <section class='frame frame_sm profile'>
     <h2>Редактировать</h2>
-    ||input_old_password||
-    ||input_new_password||
-    ||input_confirm_password||
-    <div class='frame__wrapper'></div>
-    ||backButton||
-    ||saveButton||
+    <form>
+        ||input_old_password||
+        ||input_new_password||
+        ||input_confirm_password||
+        <div class='frame__wrapper'></div>
+        ||backButton||
+        ||saveButton||
+    </form>
 </section>

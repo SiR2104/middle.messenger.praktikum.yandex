@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 
 const components = {
     'photo': ProfilePhoto(),
-    'backButton': Button({caption:"Назад"}, {onclick:"history.back()"})
+    'backButton': Button({caption:'Назад', type: 'button'}, {onclick:'history.back()'})
 };
 
 const template = new Template(Profile,components);

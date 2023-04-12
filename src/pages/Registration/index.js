@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 const components = {
-    'reg_button': Button({caption: 'Зарегистрироваться'}),
+    'reg_button': Button({caption: 'Зарегистрироваться', type: 'submit'}),
     'input_name': Input({placeholder:'имя', name:'first_name'}),
     'input_mail': Input({placeholder:'почта', name:'email'}),
     'input_login': Input({placeholder:'логин', name:'login'}),

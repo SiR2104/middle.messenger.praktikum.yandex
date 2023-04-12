@@ -28,3 +28,4 @@ Router.register( '/chat', Chat);
 Router.register( '/', Index);
 
 if (!Router.navigate()) Router.navigate('/error/404');
+
