@@ -1,9 +1,8 @@
 ## Мессенджер
 Учебный проект
 Решение по спринту №1
-Дизайн можно посмотреть по ссылке: «[Фигма](https://www.figma.com/file/Ig8HvCVka3aRB5Xq7Hpu1a/module-1?node-id=9-475&t=5dmcRrW8QNR4fpyL-0)»,
+Дизайн можно посмотреть по ссылке: [Фигма](https://www.figma.com/file/Ig8HvCVka3aRB5Xq7Hpu1a/module-1?node-id=9-475&t=5dmcRrW8QNR4fpyL-0)
 Ссылка на прототип на netlify: [Netlify](https://starlit-buttercream-ee4fa3.netlify.app/)
-
 ## Сборка и установка
 
 - `npm run dev` — запуск версии для разработчика,

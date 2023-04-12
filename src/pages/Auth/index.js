@@ -4,7 +4,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 const components = {
-    'auth_button': Button({caption: 'Вход'}),
+    'auth_button': Button({caption: 'Вход', type: 'submit'}),
     'input_login': Input({placeholder:'логин', name: 'login'}),
     'input_password': Input({placeholder:'пароль', name: 'password',type: 'password'}),
 };

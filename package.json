@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "parcel build src/static/index.html && node src/index.js",
-    "dev": "parcel src/static/index.html",
+    "dev": "parcel src/static/index.html --open --no-cache",
     "build": "parcel build src/static/index.html"
   },
   "keywords": [
