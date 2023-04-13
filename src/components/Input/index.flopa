@@ -1,0 +1,8 @@
+<div class='input'>
+    <span class='input__placeholder'>{{placeholder}}</span>
+    <input type='{{type}}'
+           class='input__field'
+           name='{{name}}'
+           placeholder=' '/>
+    <span class='input__error'>{{error}}</span>
+</div>

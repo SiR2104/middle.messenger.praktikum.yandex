@@ -1,0 +1,6 @@
+<div class='chat__data_{{type}}'>
+    <div class='chat__data_message message__{{type}}'>
+        {{text}}
+        <span>{{date}}</span>
+    </div>
+</div>

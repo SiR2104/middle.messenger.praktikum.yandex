@@ -1,0 +1,85 @@
+.input
+{
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: min(300px, 100%);
+  outline: 0;
+  &__field
+  {
+    pointer-events: auto;
+    -webkit-appearance: none;
+    text-decoration: none;
+    cursor: auto;
+    font-size: 14px;
+    line-height: 17px;
+    text-indent: 10px;
+    align-items: center;
+    outline-width: 0;
+    flex-grow: 1;
+    border-radius: 6px;
+    background-color: var(--background-color);
+    border: 1px solid #BBBBBB;
+    height: 40px;
+    transition: all ease 0.2s;
+    &:focus
+    {
+      box-shadow: unset;
+      border: 1px solid var(--primary-color);
+    }
+  }
+
+  &__field:not(:placeholder-shown) ~  &__placeholder
+  {
+    color: var(--primary-color);
+    transform: translateY(0);
+  }
+
+  &__placeholder
+  {
+    pointer-events: none;
+    color: var(--text-disabled-color);
+    user-select: none;
+    text-indent: 10px;
+    text-align: left;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    transition-property: color, transform;
+    transform: translateY(30px);
+  }
+
+  &__error
+  {
+    visibility: hidden;
+    color: var(--error-color);
+    text-indent: 10px;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  &:focus-within > &__placeholder, &:has( + &__field:not(:placeholder-shown)) &__placeholder
+  {
+    z-index: 1;
+    color: var(--primary-color);
+    transform: translateY(0);
+  }
+
+  &:has( + &__field:invalid) &
+  {
+    &__placeholder
+    {
+      color: var(--text-color);
+    }
+    &__field
+    {
+      color: var(--error-color);
+      border-color: var(--error-color);
+    }
+    &__error
+    {
+      visibility: visible;
+    }
+  }
+
+}

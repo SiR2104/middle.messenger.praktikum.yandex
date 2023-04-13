@@ -1,0 +1,6 @@
+[[title=Ошибка {{code}},description=Задача спринт 1]]
+<section class='error__main'>
+    <h1 class='error__main_error'>{{code}}</h1>
+    <span class='error__main_text'>случилась ошибка</span>
+    <a class='error__main_link' href='/'>← вернуться</a>
+</section>
