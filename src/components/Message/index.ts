@@ -3,4 +3,4 @@ import Template from '../../utils/Template';
 import '../Message/index.scss';
 
 
-export default (params, attributes) => new Template(Message, null, params, attributes);
+export default (params?, attributes?) => new Template(Message, undefined, params, attributes);

@@ -1,3 +1,5 @@
+import Template from "./Template";
+
 export default new class Router
 {
     #location = window.location
@@ -9,14 +11,14 @@ export default new class Router
         }
         return {};
     }
-    navigate = (path) => {
+    navigate = (path?: string) => {
         if (window.Flopa)
         {
-            window.history.pushState({path},"", path);
+            window.history.pushState({path},"", path || "");
             return window.Flopa.render(path || this.#location.pathname,this.params());
         }
     }
-    register = (path, template) => {
+    register = (path: string | URL, template: Template) => {
         if (window.Flopa)
         {
             window.Flopa.registerRoute(path, template);

@@ -10,4 +10,4 @@ const components = {
     'mock_message4': Message({type:'self',text:'привет, как дела?',date:'16:07'}),
 }
 
-export default (params, attributes) => new Template(ChatData, components, params, attributes);
+export default (params?, attributes?) => new Template(ChatData, components, params, attributes);

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "start": "parcel build src/static/index.html && node src/index.js",
+    "start": "parcel build src/static/index.html && node src/index.ts",
     "dev": "parcel src/static/index.html --open --no-cache",
     "build": "parcel build src/static/index.html"
   },
@@ -21,6 +21,7 @@
     "@parcel/transformer-inline-string": "^2.8.3",
     "@parcel/transformer-sass": "^2.8.3",
     "parcel": "^2.8.3",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "typescript": "^5.0.4"
   }
 }

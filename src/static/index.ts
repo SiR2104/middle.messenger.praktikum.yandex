@@ -17,7 +17,7 @@ import Chat from '../pages/Chat';
 
 
 //register routes
-Router.register( '/error/#code', Error);
+Router.register( '/error/#code',Error);
 Router.register( '/auth', Auth);
 Router.register( '/reg', Registration);
 Router.register( '/profile', Profile);
