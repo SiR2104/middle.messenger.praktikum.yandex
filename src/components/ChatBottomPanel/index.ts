@@ -3,8 +3,8 @@ import Template from '../../utils/Template';
 import '../ChatBottomPanel/index.scss';
 import DefaultInput from "../DefaultInput";
 
-const components = {
+const components: {[key:string]: Template} = {
     'input': DefaultInput({placeholder:'напишите текст', name:'message'},{style:'flex-grow:1'})
 }
 
-export default (params, attributes) => new Template(ChatBottomPanel, components, params, attributes);
+export default (params?, attributes?) => new Template(ChatBottomPanel, components, params, attributes);

@@ -1,3 +1,5 @@
+import Template from "./Template";
+
 export default class Route
 {
     path
@@ -6,27 +8,28 @@ export default class Route
     query
     #keys = []
     #params = /#([A-z0-9]{0,40})?/g;
-    constructor(path,template) {
+    constructor(path: string | URL,template: Template) {
         if (path)
         {
-            this.path = path;
-            if (this.#params.test(path))
+            this.path = path.toString();
+            if (this.#params.test(this.path))
             {
-                this.#keys = path.match(this.#params).map(key => key.replaceAll('#',''));
-                this.mask = path.replace(this.#params,'([A-z0-9]+)');
+                this.#keys = this.path.match(this.#params).map(key => key.replaceAll('#',''));
+                this.mask = this.path.replace(this.#params,'([A-z0-9]+)');
             }
             this.template = template;
         }
     }
-    #setQuery(query)
+
+    #setQuery(query: { [p: number]: string | number } | undefined)
     {
         this.query = query;
     }
-    accord = (path) => {
+    accord = (path: string | URL) => {
         if (path && this.path === path) return this;
         if (path && this.mask)
         {
-            const testData = path.match(new RegExp(`${this.mask}$`));
+            const testData = path.toString().match(new RegExp(`${this.mask}$`));
             if (testData && testData.length-1 === this.#keys.length)
             {
                 const paramValues = [...testData];
