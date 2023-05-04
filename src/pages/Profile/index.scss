@@ -1,17 +1,19 @@
 .profile
 {
-  & > ul
+   > ul
   {
     margin: {
       bottom: 30px;
     };
+
     list-style-type: none;
     padding: 0;
     width: 200px;
     display: flex;
     flex-direction: column;
     gap:10px;
-    & li
+
+     li
     {
       font-size: 14px;
       line-height: 17px;
@@ -19,12 +21,14 @@
       align-items: center;
       justify-content: space-between;
       flex-direction: row;
-      & > span
+
+       > span
       {
         &:first-child
         {
           color: var(--primary-color);
         }
+
         &:last-child
         {
           color: var(--text-color);

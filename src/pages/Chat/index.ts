@@ -1,27 +1,56 @@
-import Chat from 'bundle-text:./index.flopa';
-import Template from '../../utils/Template';
-import '../Chat/index.scss';
-import ChatCard from '../../components/ChatCard';
-import ChatTopPanel from '../../components/ChatTopPanel';
-import ChatBottomPanel from '../../components/ChatBottomPanel';
+import Component, {IProp} from '../../utils/Component';
+import Template from 'bundle-text:./index.flopa';
+import ChatCard from "../../components/ChatCard";
 import DefaultInput from "../../components/DefaultInput";
+import mock from "../../mockData/mock";
+import './index.scss';
+import ChatBottomPanel from "../../components/ChatBottomPanel";
+import ChatTopPanel from "../../components/ChatTopPanel";
 import ChatData from "../../components/ChatData";
 
-const components = {
-    'search': DefaultInput({placeholder:"поиск", name:'search'}),
-    'self_card': ChatCard({name:'Иван',text:'ivan@ivan.ru'}),
-    'mock_card1': ChatCard({name:'Светлана',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'12:00',count:'3'}),
-    'mock_card2': ChatCard({name:'Игорь',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'9:00',count:'10'}),
-    'mock_card3': ChatCard({name:'Рик',you:'Вы: ',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'пт'},{'data-selected':true}),
-    'mock_card4': ChatCard({name:'Морти',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'20.03.2023',count:'1'}),
-    'mock_card5': ChatCard({name:'Антон',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'19.03.2023',count:'1'}),
-    'mock_card6': ChatCard({name:'Ирина',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'18.03.2023'}),
-    'mock_card7': ChatCard({name:'Василий Витальевич',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'17.03.2023',count:'2'}),
-    'mock_card8': ChatCard({name:'Анатолий',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'15.03.2023'}),
-    'chat_top_panel': ChatTopPanel({name:'Рик'}),
-    'chat_data': ChatData(),
-    'chat_bottom_panel': ChatBottomPanel(),
-};
+export default class Chat extends Component
+{
+  constructor(props: IProp) {
+    const mockData = mock();
+    super({
+      ...props,
+      title:'Модуль1 - Чат',
+      description:'Чат',
+      search: new DefaultInput({
+        placeholder: 'поиск'
+      }),
+      self_card: new ChatCard({
+        name: 'Иван',
+        text: 'ivan@ivan.ru'
+      }),
+      chat_top_panel: new ChatTopPanel({
+        name: 'Иван',
+      }),
+      chat_data: new ChatData({
+        name: 'Иван',
+        text: 'ivan@ivan.ru'
+      }),
+      chat_bottom_panel: new ChatBottomPanel({}),
+      ...mockData
+    });
+  }
 
-const template = new Template(Chat,components);
-export default template;
+  render(): Node {
+    return this.compile(Template,{
+        search: this.components.search,
+        self_card: this.components.self_card,
+        mock_card1: this.components.mock_card1,
+        mock_card2: this.components.mock_card2,
+        mock_card3: this.components.mock_card3,
+        mock_card4: this.components.mock_card4,
+        mock_card5: this.components.mock_card5,
+        mock_card6: this.components.mock_card6,
+        mock_card7: this.components.mock_card7,
+        mock_card8: this.components.mock_card8,
+        chat_top_panel: this.components.chat_top_panel,
+        chat_data: this.components.chat_data,
+        chat_bottom_panel: this.components.chat_bottom_panel,
+      }
+    );
+  }
+}

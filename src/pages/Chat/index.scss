@@ -6,6 +6,7 @@
   justify-content: flex-start;
   flex-direction: row;
   align-items: stretch;
+
   &__list
   {
     padding: {
@@ -13,10 +14,12 @@
       left: 10px;
       right: 10px;
     };
+
     gap: 10px;
     width: 325px;
     display: flex;
     flex-direction: column;
+
     &_data
     {
       -ms-overflow-style: none;
@@ -26,11 +29,13 @@
       flex-direction: column;
       overflow: auto;
       padding-bottom: 10px;
+
       &::-webkit-scrollbar {
         display: none;
       }
     }
   }
+
   &__window
   {
     box-shadow: var(--box-shadow-left);

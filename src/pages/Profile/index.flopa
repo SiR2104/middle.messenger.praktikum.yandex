@@ -1,32 +1,31 @@
-[[title=Профиль,description=Профиль]]
 <section class='frame frame_sm profile'>
-    ||photo||
+    {{photo}}
     <h2>Профиль</h2>
-    <h3>Иван</h3>
+    <h3>{{param_name}}</h3>
     <ul>
         <li>
             <span>Почта:</span>
-            <span>ivanov@ivan.ru</span>
+            <span>{{param_email}}</span>
         </li>
         <li>
             <span>Логин:</span>
-            <span>ivanov@ivan.ru</span>
+            <span>{{param_login}}</span>
         </li>
         <li>
             <span>Имя:</span>
-            <span>Иван</span>
+            <span>{{param_name}}</span>
         </li>
         <li>
             <span>Фамилия:</span>
-            <span>Иванов</span>
+            <span>{{param_lastname}}</span>
         </li>
         <li>
             <span>Телефон:</span>
-            <span>+79831220000</span>
+            <span>{{param_phone}}</span>
         </li>
     </ul>
-    <a href='/profile-edit'>Изменить данные</a>
-    <a href='/reset-password'>Изменить пароль</a>
+    <a data-link='true' href='/profile-edit'>Изменить данные</a>
+    <a data-link='true' href='/reset-password'>Изменить пароль</a>
     <div class='frame__wrapper'></div>
-    ||backButton||
+    {{back_button}}
 </section>

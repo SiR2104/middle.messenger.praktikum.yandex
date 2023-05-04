@@ -1,5 +1,13 @@
-import Input from 'bundle-text:./index.flopa';
-import Template from '../../utils/Template';
-import '../ProfilePhoto/index.scss';
+import Component, {IProp} from "../../utils/Component";
+import Template from 'bundle-text:./index.flopa';
+import './index.scss';
 
-export default (params?, attributes?) => new Template(Input,undefined, params, attributes);
+export default class ProfilePhoto extends Component
+{
+  constructor(props:IProp) {
+    super(props);
+  }
+  render(): Node {
+    return this.compile(Template,{});
+  }
+}

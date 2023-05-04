@@ -1,12 +1,11 @@
-[[title=Сброс пароля,description=Сброс пароля]]
 <section class='frame frame_sm profile'>
     <h2>Редактировать</h2>
-    <form>
-        ||input_old_password||
-        ||input_new_password||
-        ||input_confirm_password||
+    <form on-submit="send" method="GET">
+        {{input_old_password}}
+        {{input_new_password}}
+        {{input_confirm_password}}
         <div class='frame__wrapper'></div>
-        ||backButton||
-        ||saveButton||
+        {{back_button}}
+        {{save_button}}
     </form>
 </section>

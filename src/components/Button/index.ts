@@ -1,5 +1,13 @@
-import Button from 'bundle-text:./index.flopa';
-import Template from '../../utils/Template';
-import '../Button/index.scss';
+import Component, {IProp} from "../../utils/Component";
+import Template from 'bundle-text:./index.flopa';
+import './index.scss';
 
-export default (params?, attributes?) => new Template(Button,undefined, params, attributes);
+export default class Button extends Component
+{
+  constructor(props:IProp) {
+    super(props);
+  }
+  render(): Node {
+    return this.compile(Template,{type: this.props.type, caption: this.props.caption});
+  }
+}

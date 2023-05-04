@@ -1,31 +1,29 @@
-'use strict';
-//import engine
+// import engine
 import '../public/style/document.scss';
 import '../utils/Flopa';
 import Router from '../utils/Router';
 
-//import pages
-import Error from '../pages/Error';
-import Index from '../pages/Index';
-import Auth from '../pages/Auth';
-import Registration from '../pages/Registration';
-import Profile from '../pages/Profile';
-import ProfileEdit from '../pages/ProfileEdit';
-import ResetPassword from '../pages/ResetPassword';
-import SelectChat from '../pages/SelectChat';
-import Chat from '../pages/Chat';
+// import pages
+import ErrorPage from '../pages/Error';
+import IndexPage from '../pages/Index';
+import AuthPage from '../pages/Auth';
+import RegistrationPage from "../pages/Registration";
+import ProfilePage from "../pages/Profile";
+import ProfileEditPage from "../pages/ProfileEdit";
+import ResetPassword from "../pages/ResetPassword";
+import SelectChat from "../pages/SelectChat";
+import Chat from "../pages/Chat";
 
 
-//register routes
-Router.register( '/error/#code',Error);
-Router.register( '/auth', Auth);
-Router.register( '/reg', Registration);
-Router.register( '/profile', Profile);
-Router.register( '/profile-edit', ProfileEdit);
-Router.register( '/reset-password', ResetPassword);
-Router.register( '/select-chat', SelectChat);
-Router.register( '/chat', Chat);
-Router.register( '/', Index);
+// register routes
+Router.register('/auth', AuthPage);
+Router.register('/error/#code', ErrorPage);
+Router.register('/reg', RegistrationPage);
+Router.register('/profile', ProfilePage);
+Router.register('/profile-edit', ProfileEditPage);
+Router.register('/reset-password', ResetPassword);
+Router.register('/select-chat', SelectChat);
+Router.register('/chat', Chat);
+Router.register('/', IndexPage);
 
 if (!Router.navigate()) Router.navigate('/error/404');
-
