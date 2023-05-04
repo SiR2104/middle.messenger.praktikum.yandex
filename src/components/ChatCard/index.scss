@@ -6,14 +6,17 @@
   align-items: stretch;
   gap: 10px;
   border-radius: 6px;
+
   &:hover
   {
     background-color: var(--background-dark-color);
   }
+
   &[data-selected]
   {
     background-color: var(--background-dark-color);
   }
+
   &_photo
   {
     width: 64px;
@@ -23,6 +26,7 @@
     background-color: var(--text-disabled-color);
     cursor: pointer;
   }
+
   &_info
   {
     display: flex;
@@ -30,10 +34,12 @@
     flex-grow: 1;
     overflow: hidden;
   }
+
   &_last
   {
     color: var(--text-color);
   }
+
   &_name
   {
     white-space: nowrap;
@@ -46,12 +52,14 @@
     flex-direction: row;
     justify-content: flex-start;
   }
+
   &_text
   {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
   }
+
   &_block
   {
     display: -webkit-box;
@@ -63,20 +71,24 @@
     font-size: 14px;
     line-height: 17px;
   }
+
   &_wrapper
   {
     flex-grow: 1;
   }
+
   &_date
   {
     font-size: 12px;
     line-height: 14px;
   }
+
   &_counter
   {
     &:empty {
       display: none;
     }
+
     flex-shrink: 0;
     font-size: 12px;
     line-height: 16px;

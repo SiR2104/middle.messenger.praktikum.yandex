@@ -1,11 +1,10 @@
-[[title=Авторизация,description=Авторизация]]
 <section class='frame frame_sm'>
     <h2>Вход</h2>
-    <form method='GET'>
-        ||input_login||
-        ||input_password||
+    <form on-submit="send" method='GET'>
+        {{input_login}}
+        {{input_password}}
         <div class='frame__wrapper'></div>
-        ||auth_button||
-        <a href='/reg'>Нет аккаунта?</a>
+        {{auth_button}}
+        <a data-link='true' href='/reg'>Нет аккаунта?</a>
     </form>
 </section>

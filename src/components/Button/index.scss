@@ -1,6 +1,6 @@
 .button
 {
-  -webkit-appearance: none;
+  appearance: none;
   text-decoration: none;
   border-radius: 6px;
   background-color: var(--primary-color);
@@ -14,10 +14,12 @@
   text-align: center;
   align-items: center;
   transition: filter ease 0.2s;
+
   &:hover
   {
     filter: brightness(1.1);
   }
+
   &:active
   {
     filter: unset;

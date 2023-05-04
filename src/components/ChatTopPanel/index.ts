@@ -1,5 +1,19 @@
-import ChatTopPanel from 'bundle-text:./index.flopa';
-import Template from '../../utils/Template';
-import '../ChatTopPanel/index.scss';
+import Component, {IProp} from "../../utils/Component";
+import Template from 'bundle-text:./index.flopa';
+import './index.scss';
 
-export default (params?, attributes?) => new Template(ChatTopPanel,undefined, params, attributes);
+export default class ChatTopPanel extends Component
+{
+  constructor(props:IProp) {
+    super({
+      ...props,
+    });
+  }
+
+
+  render(): Node {
+    return this.compile(Template,{
+      name: this.props.name
+    });
+  }
+}

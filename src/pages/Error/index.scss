@@ -6,6 +6,7 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+
   &_error
   {
     color: var(--primary-color);
@@ -14,11 +15,13 @@
     font-weight: 400;
     margin: 0;
   }
+
   &_text
   {
     font-size: 16px;
     line-height: 20px;
   }
+
   &_link
   {
     font-size: 16px;

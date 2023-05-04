@@ -1,7 +1,7 @@
 .default__input
 {
   height: 40px;
-  -webkit-appearance: none;
+  appearance: none;
   text-decoration: none;
   cursor: auto;
   font-size: 14px;
@@ -9,6 +9,6 @@
   text-indent: 10px;
   border-radius: 6px;
   background-color: var(--background-color);
-  border: 1px solid #BBBBBB;
+  border: 1px solid #BBB;
   outline-width: 0;
 }

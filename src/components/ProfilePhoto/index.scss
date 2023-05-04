@@ -10,20 +10,22 @@
   height: min(100%, 120px);
   aspect-ratio: 1/1;
   cursor: pointer;
-  &:after
+
+  &::after
   {
     content: "";
     width: min(100%, 60px);
     height: min(100%, 60px);
-    background-color: rgba(0,0,0,0);
+    background-color: rgb(0 0 0 / 0%);
     position: absolute;
     border-radius: 50%;
     transition: background-color 0.2s ease;
   }
-  &:hover:after
+
+  &:hover::after
   {
     content: url("/src/public/icons/pen.svg");
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgb(0 0 0 / 20%);
     position: absolute;
   }
 }

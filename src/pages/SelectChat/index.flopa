@@ -1,18 +1,17 @@
-[[title=Чат,description=Чат]]
 <section class='frame frame_xl'>
     <div class='chat'>
         <div class='chat__list'>
-            ||self_card||
-            ||search||
+            {{self_card}}
+            {{search}}
             <div class='chat__list_data'>
-                ||mock_card1||
-                ||mock_card2||
-                ||mock_card3||
-                ||mock_card4||
-                ||mock_card5||
-                ||mock_card6||
-                ||mock_card7||
-                ||mock_card8||
+                {{mock_card1}}
+                {{mock_card2}}
+                {{mock_card3}}
+                {{mock_card4}}
+                {{mock_card5}}
+                {{mock_card6}}
+                {{mock_card7}}
+                {{mock_card8}}
             </div>
         </div>
         <div class='chat__window'>

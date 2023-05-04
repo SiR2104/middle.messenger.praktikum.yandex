@@ -1,13 +1,27 @@
-import ChatData from 'bundle-text:./index.flopa';
-import Template from '../../utils/Template';
-import '../ChatData/index.scss';
-import Message from "../Message";
+import Component, {IProp} from "../../utils/Component";
+import Template from 'bundle-text:./index.flopa';
+import './index.scss';
+import mockMessages from "../../mockData/mockMessages";
 
-const components = {
-    'mock_message1': Message({type:'target',text:'привет, как дела?',date:'16:04'}),
-    'mock_message2': Message({type:'self',text:'привет, как дела?',date:'16:05'}),
-    'mock_message3': Message({type:'self',text:'привет, как дела?',date:'16:06'}),
-    'mock_message4': Message({type:'self',text:'привет, как дела?',date:'16:07'}),
+export default class ChatData extends Component
+{
+  constructor(props:IProp) {
+    const mock = mockMessages();
+    super({
+      ...props,
+      ...mock,
+      date: '30.05.2020',
+    });
+  }
+
+
+  render(): Node {
+    return this.compile(Template,{
+      date: this.props.date,
+      mock_message1: this.props.mock_message1,
+      mock_message2: this.props.mock_message2,
+      mock_message3: this.props.mock_message3,
+      mock_message4: this.props.mock_message4,
+    });
+  }
 }
-
-export default (params?, attributes?) => new Template(ChatData, components, params, attributes);

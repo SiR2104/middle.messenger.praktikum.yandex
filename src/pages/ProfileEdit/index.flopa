@@ -1,15 +1,14 @@
-[[title=Редактирование профиля,description=Редактирование профиля]]
 <section class='frame frame_sm profile'>
     <h2>Редактировать</h2>
-    <form>
-        ||input_mail||
-        ||input_name||
-        ||input_display_name||
-        ||input_phone||
-        ||input_lastname||
-        ||input_login||
+    <form on-submit='send' method='GET'>
+        {{input_mail}}
+        {{input_name}}
+        {{input_display_name}}
+        {{input_phone}}
+        {{input_lastname}}
+        {{input_login}}
         <div class='frame__wrapper'></div>
-        ||backButton||
-        ||saveButton||
+        {{back_button}}
+        {{save_button}}
     </form>
 </section>

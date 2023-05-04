@@ -1,10 +1,47 @@
-import ChatBottomPanel from 'bundle-text:./index.flopa';
-import Template from '../../utils/Template';
-import '../ChatBottomPanel/index.scss';
+import Component, {IProp} from "../../utils/Component";
+import Template from 'bundle-text:./index.flopa';
+import './index.scss';
 import DefaultInput from "../DefaultInput";
+import Validator from "../../utils/Validator";
 
-const components: {[key:string]: Template} = {
-    'input': DefaultInput({placeholder:'напишите текст', name:'message'},{style:'flex-grow:1'})
+export default class ChatBottomPanel extends Component
+{
+  private _validator = new Validator();
+  constructor(props:IProp) {
+    super({
+      ...props,
+      input: new DefaultInput({
+        name: 'message',
+        placeholder: 'напишите текст',
+      }),
+      actions: {
+        attachHandler: () => this._attachHandler(),
+        sendHandler: () => this._sendHandler()
+      },
+    });
+  }
+
+  private _attachHandler()
+  {
+      console.log('attach handler');
+  }
+
+  private _sendHandler()
+  {
+    const message = this.components.input.content as HTMLInputElement;
+    if (this._validator.isNotEmpty(message.value))
+    {
+      console.log(message.value);
+    }
+    else
+    {
+      throw new Error('Сообщение пустое')
+    }
+  }
+
+  render(): Node {
+    return this.compile(Template,{
+
+    });
+  }
 }
-
-export default (params?, attributes?) => new Template(ChatBottomPanel, components, params, attributes);

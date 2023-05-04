@@ -6,10 +6,11 @@
   justify-content: flex-start;
   width: min(300px, 100%);
   outline: 0;
+
   &__field
   {
     pointer-events: auto;
-    -webkit-appearance: none;
+    appearance: none;
     text-decoration: none;
     cursor: auto;
     font-size: 14px;
@@ -20,9 +21,10 @@
     flex-grow: 1;
     border-radius: 6px;
     background-color: var(--background-color);
-    border: 1px solid #BBBBBB;
+    border: 1px solid #BBB;
     height: 40px;
     transition: all ease 0.2s;
+
     &:focus
     {
       box-shadow: unset;
@@ -51,11 +53,12 @@
 
   &__error
   {
-    visibility: hidden;
+    display: none;
     color: var(--error-color);
-    text-indent: 10px;
+    text-indent: 6px;
+    text-wrap: normal;
     text-align: left;
-    font-size: 14px;
+    font-size: 10px;
   }
 
   &:focus-within > &__placeholder, &:has( + &__field:not(:placeholder-shown)) &__placeholder
@@ -65,20 +68,22 @@
     transform: translateY(0);
   }
 
-  &:has( + &__field:invalid) &
+  &:has( + &__field[invalid]) &
   {
     &__placeholder
     {
       color: var(--text-color);
     }
+
     &__field
     {
       color: var(--error-color);
       border-color: var(--error-color);
     }
+
     &__error
     {
-      visibility: visible;
+      display: unset;
     }
   }
 

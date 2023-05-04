@@ -1,8 +1,11 @@
 <div class='input'>
     <span class='input__placeholder'>{{placeholder}}</span>
-    <input type='{{type}}'
+    <input on-focus="focus" on-blur="blur" on-keydown="keydown"
+           type='{{type}}'
            class='input__field'
            name='{{name}}'
+           value='{{value}}'
+           data-mask='{{mask}}'
            placeholder=' '/>
     <span class='input__error'>{{error}}</span>
 </div>

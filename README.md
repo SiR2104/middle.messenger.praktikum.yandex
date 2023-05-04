@@ -8,11 +8,17 @@
 - `npm run dev` — запуск версии для разработчика,
 - `npm run start` — тестовый запуск,
 - `npm run build` — сборка проекта.
+- `npm run stylelint` — проверка stylelint,
+- `npm run eslint` — проверка eslint,
+- `npm run code_style` — комплексная проверка stylelint, eslint, typescript,
+- `npm run check` — проверка typescript
 
 ## Особенности проекта
 
 В проекте реализован собственный роутинг (+ динамический роутинг, шаблон может получать GET запросы и любые динамические запросы из адресной строки)
 Также реализован собственный шаблонизатор. (Нуждается в доработках)
+
+Был почти полностью переписан код, теперь работает компонентный подход.
 
 ## Описание
 Проект представляет собой web приложение для общения людей.
@@ -28,7 +34,7 @@
 Далее будет представлено описание того, как работать с самописным фрэймворком.
 - /index.html - главный макет приложения, в нем вы можете найти элемент с ID = root,
 в этот элемент помещается контент из страниц. По сути, этим элементом может быть любой тэг поддерживающий вложение.
-- /index.ts - инициализатор web приложения, в нем регистрируются страницы, а также роуты для них.
+- /index.js - инициализатор web приложения, в нем регистрируются страницы, а также роуты для них.
 В данном файле, помимо страниц подключаются все основные классы для работы приложения.
 ```
   import './src/public/style/document.scss'; - основной файл стилей
@@ -44,77 +50,68 @@ if (!Router.navigate()) Router.navigate('/error/404'); - метод рендер
 Страницы хранятся в папке /src/pages/, но это не обязательно.
 Для названия компонентов и страниц используется стиль CamelCase.
 Структура страницы:
-- index.ts - объявление страницы
+- index.js - объявление страницы
 ```
 import Index from 'bundle-text:./index.flopa'; - загружаем страницу из шаблона
-import Template from "../../utils/Template"; - класс шаблона для страниц и компонентов.
 import "../Index/index.scss"; - файл стилей для страницы
-export default new Template(Index); - экспорт
+
+Основной класс теперь необходимо объявлять внутри файла страницы или компонента.
 ```
 - index.flopa - файл шаблона
 По своей сути это html подобный файл, за исключение некоторых частей.
 Синтаксис:
- ||имя_компонента||
  {{параметр}}
- и в шапке
- [[title='заголовок страницы',description='описание']]
+
+В шаблонизаторе остались только параметры.
+Заголовок и описание страниц можно прописывать в пропсах класса
 
 ```
 Пример:
-[[title=Спринт 1,description=Задача спринт 1]]
-<section class="frame frame_index">
-    <h2>Страницы</h2>
-    <a href="/error/404">Ошибка 404</a>
-    <a href="/error/500">Ошибка 500</a>
-    <a href="/auth">Авторизация</a>
-    <a href="/reg">Регистрация</a>
-    <a href="/profile">Профиль</a>
-    <a href="/profile-edit">Редактировать профиль</a>
-    <a href="/reset-password">Сменить пароль</a>
-    <a href="/select-chat">Выбор чата</a>
-    <a href="/chat">Чат</a>
-</section>
+ {
+    title: 'test'
+    description: 'test'
+ }
+
+Работает только на страницах
 
 ```
 Дополнительно, при объявлении страницы или компонента можно добавить аттрибуты к тэгам, они добавятся только к первому корневому элементу страницы или компонента.
 ```
-import Chat from 'bundle-text:./index.flopa';
-import Template from '../../utils/Template';
-import '../Chat/index.scss';
-import ChatCard from '../../components/ChatCard';
-import ChatTopPanel from '../../components/ChatTopPanel';
-import ChatBottomPanel from '../../components/ChatBottomPanel';
-import DefaultInput from "../../components/DefaultInput";
-import ChatData from "../../components/ChatData";
+Внутри шаблона тоже много поменялось, к примеру теперь мы можем передать в пропсах любые евенты к объектам.
+{
+  events: {
+    click: (e) => console.log(e);
+  }
+}
 
-const components = {
-    'search': DefaultInput({placeholder:"поиск"}),
-    'self_card': ChatCard({name:'Иван',text:'ivan@ivan.ru'}),
-    'mock_card1': ChatCard({name:'Светлана',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'12:00',count:'3'}),
-    'mock_card2': ChatCard({name:'Игорь',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'9:00',count:'10'}),
-    'mock_card3': ChatCard({name:'Рик',you:'Вы: ',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'пт'},{'data-selected':true}),
-    'mock_card4': ChatCard({name:'Морти',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'20.03.2023',count:'1'}),
-    'mock_card5': ChatCard({name:'Антон',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'19.03.2023',count:'1'}),
-    'mock_card6': ChatCard({name:'Ирина',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'18.03.2023'}),
-    'mock_card7': ChatCard({name:'Василий Витальевич',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'17.03.2023',count:'2'}),
-    'mock_card8': ChatCard({name:'Анатолий',text:'Привет, текст какой-то тут должен быть совершенно случайно',date:'15.03.2023'}),
-    'chat_top_panel': ChatTopPanel({name:'Рик'}),
-    'chat_data': ChatData(),
-    'chat_bottom_panel': ChatBottomPanel(),
-};
+Действие назначится первому корневому элементу компонента или страницы.
+Чтобы назначить евент дочернему элементу, нужно в шаблоне аказать другой обьект:
 
-const template = new Template(Chat,components);
-export default template;
+<section class='frame frame_md frame__registration'>
+  <h2>Регистрация</h2>
+  <form on-submit='send'>
+      <div  class='frame__registration_cols'>
+    {{input_mail}}
+    {{input_login}}
+    {{input_name}}
+    {{input_lastname}}
+    {{input_password}}
+    {{input_phone}}
+    {{input_password_reply}}
+      </div>
+  <div class='frame__wrapper'></div>
+  {{reg_button}}
+  </form>
+  <a data-link='true' href='/auth'>Войти</a>
+</section>
 
-Конструктор для жаблона: 
-new Template(страница или компонент,именованные компоненты в объекте, аттрибуты для корневого компонента);
-Последние два параметра необязательны.
+Ключевое слово "on-", после чего идет название действия, внутри указываем функцию, она передается в пропсах в объекте actions.
+
+
 ```
 
-С компонентов ситуация аналогичная, за исключением экспорта, экспорт происходит функции.
-```
-export default (params, attributes) => new Template(ChatData, components, params, attributes);
-```
+С компонентов ситуация аналогичная.
+
 Вложенность компонентов не ограничена
 
 ## **Версии использованных библиотек**

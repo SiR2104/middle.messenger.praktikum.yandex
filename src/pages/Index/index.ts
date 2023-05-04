@@ -1,5 +1,14 @@
-import Index from 'bundle-text:./index.flopa';
-import Template from "../../utils/Template";
-import "../Index/index.scss";
+import Component from '../../utils/Component';
+import Template from 'bundle-text:./index.flopa';
+import './index.scss';
 
-export default new Template(Index);
+export default class IndexPage extends Component
+{
+  constructor() {
+    super();
+    this.setProps({title:'Модуль1 - Спринт 2',description:'Стартовая страница'});
+  }
+  render(): Node {
+    return this.compile(Template,{});
+  }
+}
