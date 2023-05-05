@@ -17,6 +17,7 @@ type Header = {
 }
 
 type OptionsWithoutMethod = Omit<Options, 'method'>;
+type HTTPMethod = (url: string, options?: OptionsWithoutMethod) => Promise<unknown>
 
 export default new class HTTPRequest {
   private xhr: XMLHttpRequest;
@@ -41,18 +42,18 @@ export default new class HTTPRequest {
     }
   });
 
-  get = (url: string, options: OptionsWithoutMethod = {}):
-    Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.GET });
+  get: HTTPMethod = (url: string, options = {}) =>
+    this.request(url, { ...options, method: METHODS.GET });
 
-  post = (url: string, options: OptionsWithoutMethod = {}):
-    Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.POST });
+  post: HTTPMethod = (url: string, options = {}) =>
+    this.request(url, { ...options, method: METHODS.POST });
 
-  put = (url: string, options: OptionsWithoutMethod = {}):
-    Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.PUT });
+  put: HTTPMethod = (url: string, options = {}) =>
+    this.request(url, { ...options, method: METHODS.PUT });
 
-  delete = (url: string, options: OptionsWithoutMethod = {}):
-    Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.DELETE });
+  patch: HTTPMethod = (url: string, options = {}) =>
+    this.request(url, { ...options, method: METHODS.PATCH });
 
-  patch = (url: string, options: OptionsWithoutMethod = {}):
-    Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.PATCH });
+  delete: HTTPMethod = (url: string, options = {}) =>
+    this.request(url, { ...options, method: METHODS.DELETE });
 }();
