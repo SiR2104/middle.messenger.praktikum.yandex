@@ -15,6 +15,12 @@
   align-items: center;
   transition: filter ease 0.2s;
 
+  &:focus
+  {
+    box-shadow: none;
+    outline: 0;
+  }
+
   &:hover
   {
     filter: brightness(1.1);
