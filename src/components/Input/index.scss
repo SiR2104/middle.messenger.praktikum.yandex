@@ -6,9 +6,63 @@
   justify-content: flex-start;
   width: min(300px, 100%);
   outline: 0;
+  margin: {
+    top: 10px;
+    bottom: 10px;
+  };
 
-  &__field
+  &__field:not(:placeholder-shown) ~ &__placeholder,
+  &__field:focus + &__placeholder
   {
+    color: var(--primary-color);
+    transform: translateY(-30px);
+  }
+
+  &__field[invalid] ~ &__error,
+  {
+    user-select: none;
+    color: var(--error-color);
+    display: unset;
+    transform: scaleY(1);
+    max-height: unset;
+    overflow: hidden;
+    opacity: 1;
+  }
+
+  &__field[invalid]
+  {
+    color: var(--error-color);
+  }
+
+  &__error
+  {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    max-height: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+
+  &__placeholder
+  {
+    transition: transform 0.2s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-indent: 15px;
+    height: 40px;
+    line-height: 20px;
+    position: absolute;
+    z-index: 1;
+    color: var(--text-disabled-color);
+    font-size: 14px;
+  }
+
+  &__field {
     pointer-events: auto;
     appearance: none;
     text-decoration: none;
@@ -24,67 +78,12 @@
     border: 1px solid #BBB;
     height: 40px;
     transition: all ease 0.2s;
+    position: relative;
 
-    &:focus
-    {
-      box-shadow: unset;
+    &:focus {
+      box-shadow: none;
+      outline: 0;
       border: 1px solid var(--primary-color);
     }
   }
-
-  &__field:not(:placeholder-shown) ~  &__placeholder
-  {
-    color: var(--primary-color);
-    transform: translateY(0);
-  }
-
-  &__placeholder
-  {
-    pointer-events: none;
-    color: var(--text-disabled-color);
-    user-select: none;
-    text-indent: 10px;
-    text-align: left;
-    font-size: 14px;
-    transition: all 0.2s ease;
-    transition-property: color, transform;
-    transform: translateY(30px);
-  }
-
-  &__error
-  {
-    display: none;
-    color: var(--error-color);
-    text-indent: 6px;
-    text-wrap: normal;
-    text-align: left;
-    font-size: 10px;
-  }
-
-  &:focus-within > &__placeholder, &:has( + &__field:not(:placeholder-shown)) &__placeholder
-  {
-    z-index: 1;
-    color: var(--primary-color);
-    transform: translateY(0);
-  }
-
-  &:has( + &__field[invalid]) &
-  {
-    &__placeholder
-    {
-      color: var(--text-color);
-    }
-
-    &__field
-    {
-      color: var(--error-color);
-      border-color: var(--error-color);
-    }
-
-    &__error
-    {
-      display: unset;
-    }
-  }
-
 }
